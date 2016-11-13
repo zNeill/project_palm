@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 
 import Login from './login';
-//import Register from './register';
+import Register from './register';
 import Root from './root';
 //import Home from './home';
 //import Update from './update';
@@ -27,9 +27,9 @@ export default class project_palm extends Component {
         if (route.name == 'root') {
             return <Root navigator={navigator} />
         }
-            /*if (route.name == 'register') {
+        if (route.name == 'register') {
             return <Register navigator={navigator} />
-        }*/
+        }
         if (route.name == 'login') {
             return <Login navigator={navigator} />
         }
@@ -42,14 +42,19 @@ export default class project_palm extends Component {
     } 
 
     render() {
-        return (
+            /*return (
             <View style={styles.container}>
                 <Navigator
                     initialRoute={{name: 'root'}}
                     renderScene={this.renderScene.bind(this)}
                 />
             </View>
-        );
+        );*/
+        return (
+            <View style={styles.container}>
+                <Register />
+            </View>
+        )
     }
 }
 
@@ -58,8 +63,6 @@ export default class project_palm extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
 });
