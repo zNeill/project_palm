@@ -3,6 +3,7 @@ import {
     StyleSheet,
     TextInput,
     TouchableHighlight,
+    AsyncStorage,
     Text,
     View
 } from 'react-native';
@@ -40,19 +41,18 @@ class Login extends Component {
     }
 
     async onLoginPressed() {
+        console.log("pressed");
         this.setState({showProgress: true});
         try {
-            let response = await fetch('URL-HERE', {
+            let response = await fetch('https://findmy.city/palmapi/?mode=auth', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    session: {
-                        email: this.state.email,
-                        password: this.state.password
-                    }
+                    email: this.state.email,
+                    password: this.state.password
                 })
             });
 
@@ -60,13 +60,14 @@ class Login extends Component {
 
             if (response.status >= 200 && response.status < 300) {
                 // success!!
-                let accessToken = res;
+                let accessToken = res; console.log(accessToken);
                 // store access token in AsyncStorage when success
                 this.storeToken(accessToken);
                 this.redirect('home');
             }
             else {
                 //handle error
+                console.log(res);
                 let error = res;
                 throw error;
             }
@@ -81,7 +82,7 @@ class Login extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.heading}>Native on Rails</Text>
+                <Text style={styles.heading}>User Login BIOTCH</Text>
                 <TextInput
                     onChangeText={ (text) => this.setState({email: text}) }
                     style={styles.input} placeholder="Email">
@@ -121,6 +122,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     padding: 4,
     fontSize: 18,
+    alignSelf: 'stretch',
     borderWidth: 1,
     borderColor: '#48bbec'
   },

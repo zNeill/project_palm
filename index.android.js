@@ -11,7 +11,6 @@ import {
     Text,
     View,
     Navigator,
-    TouchableHighlight,
     ToolbarAndroid
 } from 'react-native';
 
@@ -52,7 +51,7 @@ export default class project_palm extends Component {
         );*/
         return (
             <View style={styles.container}>
-                <Register />
+                <Login />
             </View>
         )
     }

@@ -57,6 +57,7 @@ class Register extends Component {
                 })
             });
             let res = await response.text();
+            console.log("res is " + res);
             if (response.status >= 200 && response.status < 300) {
                     //Handle success
                     let accessToken = res;
@@ -92,7 +93,6 @@ class Register extends Component {
                 <Text style={styles.heading}>
                     Join us now!
                 </Text>
-                <TextInput></TextInput>
                 <TextInput
                     onChangeText={ (text)=> this.setState({email: text}) }
                     style={styles.input} placeholder="Email">
@@ -145,6 +145,7 @@ const styles = StyleSheet.create({
     },
     input: {
         height: 50,
+        alignSelf: 'stretch',
         marginTop: 10,
         padding: 4,
         fontSize: 18,
