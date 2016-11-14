@@ -24,11 +24,15 @@ class Register extends Component {
             showProgress: false,
         }
     }
-        /*redirect(routeName, accessToken){
+    
+    redirect(routeName, token){
         this.props.navigator.push({
-            name: routeName
+            name: routeName,
+            passProps: {
+                accessToken: token
+            }
         });
-    }*/
+    }
 
     async storeToken(accessToken) {
         try {
@@ -59,13 +63,12 @@ class Register extends Component {
             let res = await response.text();
             console.log("res is " + res);
             if (response.status >= 200 && response.status < 300) {
-                    //Handle success
-                    let accessToken = res;
-                    console.log(accessToken);
-                    //On success we will store the access_token in the AsyncStorage
-                    this.storeToken(accessToken);
-                //this.redirect('home');
-                console.log("ALL GOOD!  Redirect to home when alls good");
+                //Handle success
+                let accessToken = res;
+                console.log(accessToken);
+                //On success we will store the access_token in the AsyncStorage
+                this.storeToken(accessToken);
+                this.redirect('home', accessToken);
             } else {
                     //Handle error
                     let error = res;

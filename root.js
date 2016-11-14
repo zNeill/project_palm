@@ -12,13 +12,14 @@ const ACCESS_TOKEN = 'access_token';
 
 class Root extends Component {
 
-    componentWillMount() {
-        this.getToken();
-    }
     navigate(routeName) {
         this.props.navigator.push({
             name: routeName
         });
+    }
+    
+        /*componentWillMount() {
+        this.getToken();
     }
 
     async getToken() {
@@ -27,7 +28,7 @@ class Root extends Component {
             if(!accessToken) {
                     console.log("Token not set");
             } else {
-                    this.verifyToken(accessToken)
+                //this.verifyToken(accessToken)
             }
         } catch(error) {
                 console.log("Something went wrong");
@@ -51,7 +52,7 @@ class Root extends Component {
         } catch(error) {
                 console.log("error response: " + error);
         }
-    }
+    }*/
     render() {
         return (
             <View style={styles.container}>
