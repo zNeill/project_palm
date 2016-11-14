@@ -22,9 +22,12 @@ class Login extends Component {
         }
     }
 
-    redirect (routeName, accessToken) {
+    redirect(routeName, token) {
         this.props.navigator.push({
-            name: routeName
+            name: routeName,
+            passProps: {
+                accessToken: token
+            }
         });
     }
 
@@ -89,7 +92,7 @@ class Login extends Component {
                 let accessToken = res; 
                 // store access token in AsyncStorage when success
                 this.storeToken(accessToken);
-                this.redirect('home');
+                this.redirect('home', accessToken);
             }
             else {
                 //handle error
