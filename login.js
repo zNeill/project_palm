@@ -28,7 +28,34 @@ class Login extends Component {
         });
     }
 
-    storeToken (responseData) {
+    async storeToken(accessToken) {
+        try {
+            await AsyncStorage.setItem(ACCESS_TOKEN, accessToken);
+            this.getToken();
+        } catch(error) {
+                console.log("Error in storeToken");
+        }
+    }
+
+    async getToken() {
+        try {
+            let token = await AsyncStorage.getItem(ACCESS_TOKEN);
+            console.log("token is " + token);
+        } catch(error) {
+            console.log("Error in getToken");
+        }
+    }
+
+    async removeToken() {
+        try {
+            await AsyncStorage.removeItem(ACCESS_TOKEN);
+            this.getToken();
+        } catch(error) {
+            console.log("error in removeToken");
+        }
+    }
+
+        /*storeToken (responseData) {
         AsyncStorage.setItem(ACCESS_TOKEN, responseData, (err) => {
             if (err) {
                 console.log("an error");
@@ -38,10 +65,9 @@ class Login extends Component {
         }).catch((err) => {
             console.log("error is: " + err);
         });
-    }
+    }*/
 
     async onLoginPressed() {
-        console.log("pressed");
         this.setState({showProgress: true});
         try {
             let response = await fetch('https://findmy.city/palmapi/?mode=auth', {
@@ -60,19 +86,19 @@ class Login extends Component {
 
             if (response.status >= 200 && response.status < 300) {
                 // success!!
-                let accessToken = res; console.log(accessToken);
+                let accessToken = res; 
                 // store access token in AsyncStorage when success
                 this.storeToken(accessToken);
                 this.redirect('home');
             }
             else {
                 //handle error
-                console.log(res);
                 let error = res;
                 throw error;
             }
         }
         catch (error) {
+            //this.removeToken();
             this.setState({error: error});
             console.log("error " + error);
             this.setState({showProgress: false});

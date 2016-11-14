@@ -24,11 +24,11 @@ class Register extends Component {
             showProgress: false,
         }
     }
-    redirect(routeName, accessToken){
+        /*redirect(routeName, accessToken){
         this.props.navigator.push({
             name: routeName
         });
-    }
+    }*/
 
     async storeToken(accessToken) {
         try {
@@ -41,7 +41,7 @@ class Register extends Component {
     async onRegisterPressed() {
         this.setState({showProgress: true})
         try {
-            let response = await fetch('https://afternoon-beyond-22141.herokuapp.com/api/users', {
+            let response = await fetch('https://findmy.city/palmapi/?mode=newuser', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -64,7 +64,8 @@ class Register extends Component {
                     console.log(accessToken);
                     //On success we will store the access_token in the AsyncStorage
                     this.storeToken(accessToken);
-                    this.redirect('home');
+                //this.redirect('home');
+                console.log("ALL GOOD!  Redirect to home when alls good");
             } else {
                     //Handle error
                     let error = res;
@@ -72,19 +73,20 @@ class Register extends Component {
             }
         } catch(errors) {
             //errors are in JSON form so we must parse them first.
-            let formErrors = JSON.parse(errors);
+            //let formErrors = JSON.parse(errors);
             //We will store all the errors in the array.
-            let errorsArray = [];
-            for(var key in formErrors) {
+            //let errorsArray = [];
+            //for(var key in formErrors) {
                 //If array is bigger than one we need to split it.
-                if(formErrors[key].length > 1) {
+                /*if(formErrors[key].length > 1) {
                         formErrors[key].map(error => errorsArray.push(`${key} ${error}`));
                 } else {
                         errorsArray.push(`${key} ${formErrors[key]}`);
                 }
             }
             this.setState({errors: errorsArray})
-            this.setState({showProgress: false});
+            this.setState({showProgress: false});*/
+            console.log("Errors are " + errors);
         }
     }
     render() {
