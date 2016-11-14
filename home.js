@@ -18,13 +18,35 @@ class Home extends Component {
             accessToken: this.props.accessToken,
         }
     }
+    
+    redirect(routeName){
+        this.props.navigator.push({
+            name: routeName,
+        });
+    }
+
+    async deleteToken() {
+        try {
+            await AsyncStorage.removeItem(ACCESS_TOKEN)
+            this.redirect('root');
+        } catch(error) {
+            console.log("Error in deleteToken");
+        }
+    }
+
+    onLogout(){
+        this.setState({showProgress: true})
+        this.deleteToken();
+    }
 
     render() {
         return(
             <View style={styles.container}>
                 <Text style={styles.title}> Welcome User </Text>
                 <Text style={styles.text}> Your new token is {this.state.accessToken} </Text>
-
+                <TouchableHighlight onPress={this.onLogout.bind(this)} style={styles.button}>
+                    <Text style={styles.buttonText}>Logout</Text>
+                </TouchableHighlight>
             </View>
         );
     }

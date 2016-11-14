@@ -18,7 +18,7 @@ class Root extends Component {
         });
     }
     
-        /*componentWillMount() {
+    componentWillMount() {
         this.getToken();
     }
 
@@ -28,10 +28,10 @@ class Root extends Component {
             if(!accessToken) {
                     console.log("Token not set");
             } else {
-                //this.verifyToken(accessToken)
+                this.verifyToken(accessToken)
             }
         } catch(error) {
-                console.log("Something went wrong");
+                console.log("Error in getToken");
         }
     }
     //If token is verified we will redirect the user to the home page
@@ -39,20 +39,20 @@ class Root extends Component {
         let accessToken = token
 
         try {
-            let response = await fetch('https://afternoon-beyond-22141.herokuapp.com/api/verify?session%5Baccess_token%5D='+accessToken);
+            let response = await fetch('https://findmy.city/palmapi/?mode=verifyToken&token='+accessToken);
             let res = await response.text();
             if (response.status >= 200 && response.status < 300) {
                 //Verified token means user is logged in so we redirect him to home.
                 this.navigate('home');
             } else {
-                    //Handle error
-                    let error = res;
-                    throw error;
+                //Handle error
+                let error = res;
+                throw error;
             }
         } catch(error) {
                 console.log("error response: " + error);
         }
-    }*/
+    }
     render() {
         return (
             <View style={styles.container}>
