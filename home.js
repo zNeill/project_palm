@@ -44,6 +44,7 @@ class Home extends Component {
             <View style={styles.container}>
                 <Text style={styles.title}> Welcome User </Text>
                 <Text style={styles.text}> Your new token is {this.state.accessToken} </Text>
+                <Text style={styles.text}>Test</Text>
                 <TouchableHighlight onPress={this.onLogout.bind(this)} style={styles.button}>
                     <Text style={styles.buttonText}>Logout</Text>
                 </TouchableHighlight>

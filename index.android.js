@@ -18,7 +18,7 @@ import Login from './login';
 import Register from './register';
 import Root from './root';
 import Home from './home';
-//import Update from './update';
+import ImagePane from './pane.js';
 
 export default class project_palm extends Component {
     renderScene(route, navigator) {
@@ -47,6 +47,7 @@ export default class project_palm extends Component {
                     initialRoute={{name: 'root'}}
                     renderScene={this.renderScene.bind(this)}
                 />
+                <ImagePane />
             </View>
         );
         /*return (

@@ -53,6 +53,7 @@ class Root extends Component {
                 console.log("error response: " + error);
         }
     }
+
     render() {
         return (
             <View style={styles.container}>
