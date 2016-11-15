@@ -8,6 +8,8 @@ import {
     View
 } from 'react-native';
 
+import ImagePane from './pane.js';
+
 const ACCESS_TOKEN = 'access_token';
 
 class Home extends Component {
@@ -42,9 +44,9 @@ class Home extends Component {
     render() {
         return(
             <View style={styles.container}>
-                <Text style={styles.title}> Welcome User </Text>
-                <Text style={styles.text}> Your new token is {this.state.accessToken} </Text>
-                <Text style={styles.text}>Test</Text>
+                <Text style={styles.title}>Photo Gallery</Text>
+                <Text style={styles.text}>The event photo gallery is below. Upload photos to share them with the group!</Text>
+                <ImagePane /><ImagePane />
                 <TouchableHighlight onPress={this.onLogout.bind(this)} style={styles.button}>
                     <Text style={styles.buttonText}>Logout</Text>
                 </TouchableHighlight>

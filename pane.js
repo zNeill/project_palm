@@ -11,16 +11,11 @@ import {
 export default class ImagePane extends Component {
     render() {
         return (
-            <View style={styles.container}>
-                <View style={styles.vertcontainer}>
-                    <Text style={styles.text}>sleepy_gary</Text>
+            <View style={{flex:1, flexDirection:'column', justifyContent:'center'}}>
+                <View style={{flexDirection:'row'}}>
+                    <Text style={styles.text}>[username]</Text>
                     <Image source={require('./img/ph1.png')} />
-                    <Text style={styles.text}>Outside the world mattress museum!</Text>
-                </View>
-                <View style={styles.vertcontainer}>
-                    <Text style={styles.text}>triggered_by_trump</Text>
-                    <Image source={require('./img/ph1.png')} />
-                    <Text style={styles.text}>Sunrise over the lake</Text>
+                    <Text style={styles.text}>[description]</Text>
                 </View>
             </View>
         );
@@ -38,6 +33,7 @@ const styles = StyleSheet.create({
     },
     vertcontainer: {
         flexDirection: 'row',
+        flex: 2,
         backgroundColor: '#eeeeee'
     },
     title: {
