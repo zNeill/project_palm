@@ -1,7 +1,12 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow add comment to test git ssh key
+ * Incentive Photo Sharing App, codename 'Project Palm'
+ * By: Chris Matzenbach and Neill Lewis
+ * Done for the JS track in CS50x Miami
+ *
+ * Login system was derived with help of the youtube tutorial 
+ * 'React Native Registration' by user Isaac Ben Hutta and the
+ * accompanying source code
+ * Video Tutorial:
  */
 
 import React, { Component } from 'react';

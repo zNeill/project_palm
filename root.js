@@ -57,7 +57,7 @@ class Root extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.title}>Welcome Friend </Text>
+                <Text style={styles.title}>Welcome!</Text>
                 <TouchableHighlight onPress={ this.navigate.bind(this,'register') } style={styles.button}>
                     <Text style={styles.buttonText}>Register</Text>
                 </TouchableHighlight>

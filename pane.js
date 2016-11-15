@@ -11,7 +11,7 @@ import {
 export default class ImagePane extends Component {
     render() {
         return (
-            <View style={{flex:1, flexDirection:'column', justifyContent:'center'}}>
+            <View style={{flex:1, flexDirection:'column', justifyContent:'center', marginBottom:30}}>
                 <View style={{flexDirection:'row'}}>
                     <Text style={styles.text}>[username]</Text>
                     <Image source={require('./img/ph1.png')} />

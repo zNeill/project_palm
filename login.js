@@ -111,7 +111,7 @@ class Login extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.heading}>User Login BIOTCH</Text>
+                <Text style={styles.heading}>Attendee Login</Text>
                 <TextInput
                     onChangeText={ (text) => this.setState({email: text}) }
                     style={styles.input} placeholder="Email">

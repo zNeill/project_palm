@@ -96,7 +96,7 @@ class Register extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.heading}>
-                    Join us now!
+                    Create an account and start sharing your trip photos now!
                 </Text>
                 <TextInput
                     onChangeText={ (text)=> this.setState({email: text}) }
