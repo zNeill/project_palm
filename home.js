@@ -5,6 +5,7 @@ import {
     TouchableHighlight,
     AsyncStorage,
     Text,
+    ScrollView,
     View
 } from 'react-native';
 
@@ -43,14 +44,14 @@ class Home extends Component {
 
     render() {
         return(
-            <View style={styles.container}>
+            <ScrollView contentContainerStyle={styles.container}>
                 <Text style={styles.title}>Photo Gallery</Text>
                 <Text style={styles.text}>The event photo gallery is below. Upload photos to share them with the group!</Text>
-                <ImagePane /><ImagePane />
+                <ImagePane /><ImagePane /><ImagePane /><ImagePane />
                 <TouchableHighlight onPress={this.onLogout.bind(this)} style={styles.button}>
                     <Text style={styles.buttonText}>Logout</Text>
                 </TouchableHighlight>
-            </View>
+            </ScrollView>
         );
     }
 }

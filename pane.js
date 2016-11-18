@@ -5,16 +5,17 @@ import {
     AsyncStorage,
     Text,
     Image,
+    ScrollView,
     View
 } from 'react-native';
 
 export default class ImagePane extends Component {
     render() {
         return (
-            <View style={{flex:1, flexDirection:'column', justifyContent:'center', marginBottom:30}}>
-                <View style={{flexDirection:'row'}}>
-                    <Text style={styles.text}>[username]</Text>
-                    <Image source={require('./img/ph1.png')} />
+            <View style={styles.post}>
+                <View style={{flexDirection:'column',  }}>
+                    <Text style={styles.username}>[username.test]</Text>
+                    <Image source={require('./img/ph2.png')} />
                     <Text style={styles.text}>[description]</Text>
                 </View>
             </View>
@@ -31,14 +32,22 @@ const styles = StyleSheet.create({
         padding: 10,
         paddingTop: 30
     },
+    post: {
+        flex: 1,
+        flexDirection: 'column',
+        margin: 20,
+        backgroundColor: '#eeeeee'
+    },
     vertcontainer: {
         flexDirection: 'row',
         flex: 2,
-        backgroundColor: '#eeeeee'
-    },
-    title: {
+        backgroundColor: '#eeeeee',
         fontSize: 25,
         marginBottom: 15
+    },
+    username: {
+        fontSize: 10,
+        fontWeight: '700'
     },
     text: {
         fontSize: 20,
