@@ -4,6 +4,7 @@ import {
     StyleSheet,
     TouchableHighlight,
     AsyncStorage,
+    Image,
     Text,
     View
 } from 'react-native';
@@ -56,15 +57,27 @@ class Root extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.title}>Welcome!</Text>
-                <TouchableHighlight onPress={ this.navigate.bind(this,'register') } style={styles.button}>
-                    <Text style={styles.buttonText}>Register</Text>
-                </TouchableHighlight>
-                <TouchableHighlight onPress={ this.navigate.bind(this, 'login') } style={styles.button}>
-                    <Text style={styles.buttonText}>Login</Text>
-                </TouchableHighlight>
-            </View>
+        <View style={styles.container}>
+                
+             <Image
+                    source={require('./img/palm.jpg')}
+                    style={{resizeMode:'cover',flex:10}}
+             >
+               <View style={{flex:4}}>
+                    <Text style={styles.title}>Welcome</Text> 
+                    <Text style={styles.title}>To Your</Text>
+                    <Text style={styles.title}>Incentive Trip</Text>
+                </View>
+                <View style={{flex:6}}>
+                    <TouchableHighlight onPress={ this.navigate.bind(this,'register') } style={styles.button}>
+                        <Text style={styles.buttonText}>Register</Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight onPress={ this.navigate.bind(this, 'login') } style={styles.button}>
+                        <Text style={styles.buttonText}>Login</Text>
+                    </TouchableHighlight>
+                </View>
+            </Image>
+        </View>
         );
     }
 }
@@ -74,9 +87,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
+        alignSelf: 'center',
         backgroundColor: '#F5FCFF',
-        padding: 10,
-        paddingTop: 180
     },
     button: {
         height: 50,
@@ -92,8 +104,12 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     title: {
-        fontSize: 25,
-        marginBottom: 15
+        fontSize: 40,
+        color: '#000000',
+        flex: 2,
+        justifyContent: 'flex-start',
+        alignItems:'center',
+        alignSelf: 'center'
     }
 });
 

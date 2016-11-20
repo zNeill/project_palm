@@ -4,6 +4,7 @@ import {
     TextInput,
     TouchableHighlight,
     AsyncStorage,
+    Image,
     Text,
     View
 } from 'react-native';
@@ -111,7 +112,7 @@ class Login extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.heading}>Attendee Login</Text>
+               <Text style={styles.heading}>Attendee Login</Text>
                 <TextInput
                     onChangeText={ (text) => this.setState({email: text}) }
                     style={styles.input} placeholder="Email">
