@@ -82,7 +82,6 @@ class Home extends Component {
                                 style={{width:400, height:300}} 
                             >
                             </Image>
-                            <Text style={styles.text}>photo.description</Text>
 
                         </View>
 
