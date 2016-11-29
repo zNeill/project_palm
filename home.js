@@ -54,6 +54,12 @@ class Home extends Component {
         });
     }
 
+    navigate(routeName) {
+        this.props.navigator.push({
+            name: routeName
+        });
+    }
+
     async deleteToken() {
         try {
             await AsyncStorage.removeItem(ACCESS_TOKEN)
@@ -101,6 +107,12 @@ class Home extends Component {
                 <ScrollView style={{margin: 10}}>
                   {this.renderPhotos(this.state.photos)}
                 </ScrollView>
+
+
+                <TouchableHighlight onPress={ this.navigate.bind(this, 'kam') } style={styles.button}>
+                   <Text style={styles.buttonText}>Camera</Text>
+                </TouchableHighlight>
+
                 <TouchableHighlight onPress={this.onLogout.bind(this)} style={styles.button}>
                     <Text style={styles.buttonText}>Logout</Text>
                 </TouchableHighlight>
