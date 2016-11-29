@@ -23,6 +23,7 @@ import Login from './login';
 import Register from './register';
 import Root from './root';
 import Home from './home';
+import Kam from './kam';
 //import ImagePane from './pane.js';
 
 export default class project_palm extends Component {
@@ -39,6 +40,9 @@ export default class project_palm extends Component {
         }
         if (route.name == 'home') {
             return <Home navigator={navigator} {...route.passProps} />
+        }
+        if (route.name == 'kam') {
+            return <Kam navigator={navigator} {...route.passProps} />
         }
             /*if (route.name == 'update') {
             return <Update navigator={navigator} {...route.passProps} />
